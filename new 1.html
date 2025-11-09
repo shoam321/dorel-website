@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>דוראל אזולאי • מאמן כושר אישי #1</title>
+<meta name="theme-color" content="#000">
+<link href="https://fonts.googleapis.com/css2?family=Alef:wght@700&family=Rubik:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{--black:#0a0a0a;--orange:#ff3b30;--white:#fff;--gray:#1a1a1a;--glow:0 0 10px #ff3b30}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Rubik',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+ 
+  .hero{min-height:100dvh;background:linear-gradient(rgba(0,0,0,0.88),rgba(0,0,0,0.95)),url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=95') center/cover no-repeat fixed;display:grid;place-items:center;padding:20px}
+  .card{background:rgba(26,26,26,0.98);backdrop-filter:blur(25px);border-radius:35px;width:min(600px,96vw);padding:80px 50px;text-align:center;box-shadow:0 60px 160px rgba(255,59,48,0.4);border:3px solid rgba(255,59,48,0.3)}
+  h1{font-family:'Alef',sans-serif;font-size:clamp(56px,16vw,110px);font-weight:700;letter-spacing:-2px;color:var(--white)}
+  .subtitle{font-family:'Alef',sans-serif;font-size:30px;color:var(--orange);margin:20px 0 50px}
+  .desc{font-size:24px;color:#eee;margin-bottom:60px;line-height:1.8}
+  .actions{display:grid;gap:28px;max-width:480px;margin:0 auto}
+  .btn{padding:28px 50px;border-radius:25px;font-size:25px;font-weight:900;letter-spacing:1px;cursor:pointer;transition:all .4s;box-shadow:0 16px 50px rgba(0,0,0,0.8)}
+  .btn:hover{transform:translateY(-10px);box-shadow:0 30px 80px rgba(255,59,48,0.6)}
+  .review-btn{background:transparent;color:var(--white);border:4px solid var(--white)}
+  .cv-btn{background:var(--orange);color:var(--white)}
+  .wa-btn{background:#25d366;color:var(--white)}
+ 
+  .gallery{padding:100px 20px;background:var(--gray);text-align:center}
+  .gallery h2{font-family:'Alef',sans-serif;font-size:42px;color:var(--orange);margin-bottom:60px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:40px;max-width:1600px;margin:0 auto}
+  .img-card{border-radius:32px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.8);transition:all .4s;height:480px;background:#000}
+  .img-card:hover{transform:scale(1.05)}
+  .img-card img{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+ 
+  .results{padding:100px 20px;text-align:center;background:var(--black)}
+  .results h2{font-size:42px;color:var(--orange);margin-bottom:40px}
+  .results p{font-size:22px;color:#ddd;line-height:1.8}
+ 
+  .footer{padding:50px;background:#000;text-align:center;font-size:16px;color:#777;border-top:5px solid var(--orange)}
+ 
+  /* שדרוג הדיאלוג – יפה, מושך, אנימציות + פסיכולוגיה */
+  dialog{border:3px solid var(--orange);border-radius:30px;padding:30px;width:min(95vw,550px);background:#111;color:var(--white);box-shadow:0 40px 120px rgba(255,59,48,0.5);animation:fadeIn 0.5s ease-out}
+  dialog::backdrop{background:rgba(0,0,0,0.95);animation:fadeIn 0.5s ease-out}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  .rating-header{text-align:center;margin-bottom:30px}
+  .rating-header h3{font-family:'Alef',sans-serif;font-size:28px;color:var(--orange);margin-bottom:10px}
+  .social-proof{font-size:18px;color:#aaa;margin-bottom:20px}
+  .social-proof::before{content:"💪 90% מהמתאמנים דירגו 5 כוכבים – מה דעתך? ";font-weight:500}
+  .q{margin:20px 0;padding:20px;border:2px solid #333;border-radius:20px;background:#222;animation:slideIn 0.3s ease-out forwards;opacity:0;transform:translateX(20px)}
+  .q:nth-child(1){animation-delay:0.1s}
+  .q:nth-child(2){animation-delay:0.2s}
+  .q:nth-child(3){animation-delay:0.3s}
+  .q:nth-child(4){animation-delay:0.4s}
+  .q:nth-child(5){animation-delay:0.5s}
+  @keyframes slideIn{to{opacity:1;transform:translateX(0)}}
+  .q label{font-size:18px;font-weight:500;margin-bottom:10px;display:block}
+  .stars{display:flex;gap:8px;justify-content:center;margin-top:10px}
+  .star{width:50px;height:50px;font-size:28px;background:transparent;border:2px solid #666;border-radius:10px;cursor:pointer;transition:all .3s ease;transform:scale(1)}
+  .star:hover{transform:scale(1.1);box-shadow:var(--glow)}
+  .star.active{background:var(--orange);border-color:var(--orange);color:var(--white);animation:sparkle 0.5s ease-out}
+  @keyframes sparkle{0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
+  .progress-bar{position:fixed;top:20px;right:20px;width:60px;height:60px;border-radius:50%;border:4px solid #333;border-top:4px solid var(--orange);animation:spin 2s linear infinite;margin:10px 0;display:none}
+  .progress-bar.show{display:block}
+  @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+  .progress-text{position:absolute;top:70px;right:20px;font-size:14px;color:#aaa}
+  .reward-text{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--orange);color:var(--white);padding:20px;border-radius:20px;font-weight:700;text-align:center;display:none;animation:pop 0.5s ease-out}
+  @keyframes pop{0%{transform:translate(-50%,-50%) scale(0.5)}100{transform:translate(-50%,-50%) scale(1)}}
+  .btn-submit{padding:16px 40px;background:var(--orange);color:#fff;border:none;border-radius:16px;font-size:20px;font-weight:900;cursor:pointer;transition:all .3s;animation:pulse 2s infinite}
+  .btn-submit:hover{transform:scale(1.05)}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,59,48,0.7)}70%{box-shadow:0 0 0 20px rgba(255,59,48,0)}100%{box-shadow:0 0 0 0 rgba(255,59,48,0)}}
+  .btn-close{padding:16px 40px;background:#333;color:#fff;border:none;border-radius:16px;font-size:20px;font-weight:900;cursor:pointer;transition:all .3s}
+  .btn-close:hover{transform:scale(1.05)}
+  .free-text{margin-top:10px}
+  .free-text textarea{width:100%;padding:14px;border:2px solid #444;border-radius:12px;background:#222;color:#fff}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="card">
+    <h1>דוראל אזולאי</h1>
+    <div class="subtitle">מאמן כושר אישי #1 בישראל</div>
+    <p class="desc">תוצאות מובטחות תוך 30 יום • אימונים פרטיים 1:1 • גוף חלומות<br>אלפי מתאמנים שינו חיים – עכשיו תורך</p>
+    <div class="actions">
+      <button class="btn review-btn" onclick="openRating()">השאירו ביקורת</button>
+      <button class="btn cv-btn" onclick="openCV()">שליחת קורות חיים</button>
+      <a href="https://wa.me/972523456789" target="_blank" class="btn wa-btn">ווטסאפ – עכשיו</a>
+    </div>
+  </div>
+</div>
+<div class="gallery">
+  <h2>המתאמנים שלי משנים חיים</h2>
+  <div class="grid">
+    <div class="img-card"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=95" alt="מתאמן 1"></div>
+    <div class="img-card"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=95" alt="מתאמן 2"></div>
+    <div class="img-card"><img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=95" alt="מתאמן 4"></div>
+  </div>
+</div>
+<div class="results">
+  <h2>תוצאות שמדברות בעד עצמן</h2>
+  <p>יותר מ-500 מתאמנים ירדו 10-25 ק"ג תוך 3 חודשים<br>100% הצלחה – או כסף חזרה</p>
+</div>
+<div class="footer">© <span id="year"></span> דוראל אזולאי • כל הזכויות שמורות</div>
+
+<!-- דיאלוג הדירוג המשודרג – יפה, מושך, עם אנימציות + פסיכולוגיה -->
+<dialog id="rating">
+  <div class="rating-header">
+    <h3>תודה על האימון המדהים! ⭐</h3>
+    <p class="social-proof">90% מהמתאמנים דירגו 5 כוכבים – מה דעתך? 💪</p>
+  </div>
+  <div class="progress-bar" id="progressBar"></div>
+  <p class="progress-text" id="progressText">0/5 שאלות</p>
+  <form id="rateForm">
+    <div class="q" id="q1">
+      <label>שביעות רצון כללית</label>
+      <div class="stars" data-name="q1"></div>
+    </div>
+    <div class="q" id="q2">
+      <label>מקצועיות והדרכה</label>
+      <div class="stars" data-name="q2"></div>
+    </div>
+    <div class="q" id="q3">
+      <label>תוצאות האימונים</label>
+      <div class="stars" data-name="q3"></div>
+    </div>
+    <div class="q" id="q4">
+      <label>יחס ושירות</label>
+      <div class="stars" data-name="q4"></div>
+    </div>
+    <div class="q" id="q5">
+      <label>תמורה למחיר</label>
+      <div class="stars" data-name="q5"></div>
+    </div>
+    <div class="free-text q" id="freeTextQ">
+      <label>הערות חופשיות (לא חובה 😊)</label>
+      <textarea id="freeText" rows="3" placeholder="ספר לנו מה אהבת – זה עוזר למתאמנים אחרים!"></textarea>
+    </div>
+    <div style="display:flex;gap:16px;justify-content:center;margin-top:30px">
+      <button type="submit" class="btn-submit" id="submitBtn">שליחה</button>
+      <button type="button" class="btn-close" onclick="document.getElementById('rating').close()">לא עכשיו</button>
+    </div>
+    <div class="reward-text" id="rewardText"></div>
+    <div class="ok" id="rateOk">תודה רבה! הדירוג שלך ישנה חיים למתאמנים אחרים 💪</div>
+  </form>
+</dialog>
+
+<!-- דיאלוג קורות חיים (לא שונה) -->
+<dialog id="cv">
+  <h3 style="font-size:28px;margin-bottom:20px;text-align:center">שליחת קורות חיים</h3>
+  <form id="cvForm" style="display:grid;gap:16px">
+    <input required name="name" placeholder="שם מלא" style="padding:16px;border:2px solid #444;border-radius:12px;background:#222;color:#fff;font-size:18px">
+    <input required name="phone" placeholder="טלפון" style="padding:16px;border:2px solid #444;border-radius:12px;background:#222;color:#fff;font-size:18px">
+    <input required name="file" type="file" accept=".pdf,.doc,.docx" style="padding:12px">
+    <textarea name="note" rows="4" placeholder="ניסיון, זמינות, תחום התמחות…" style="padding:16px;border:2px solid #444;border-radius:12px;background:#222;color:#fff;font-size:18px"></textarea>
+    <div style="display:flex;gap:16px;justify-content:center;margin-top:20px">
+      <button type="submit" style="padding:16px 40px;background:var(--orange);color:#fff;border:none;border-radius:16px;font-size:20px;font-weight:900;cursor:pointer">שליחה</button>
+      <button type="button" onclick="document.getElementById('cv').close()" style="padding:16px 40px;background:#333;color:#fff;border:none;border-radius:16px;font-size:20px;font-weight:900;cursor:pointer">סגור</button>
+    </div>
+    <div class="ok" id="cvok">נשלח בהצלחה! נחזור אליך בהקדם</div>
+  </form>
+</dialog>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const values = {};
+  let currentQuestion = 0;
+  const questions = ['שביעות רצון כללית', 'מקצועיות והדרכה', 'תוצאות האימונים', 'יחס ושירות', 'תמורה למחיר'];
+  const starsElements = {};
+  
+  function initStars() {
+    questions.forEach((q, idx) => {
+      const el = document.querySelector(`[data-name="q${idx+1}"]`);
+      starsElements[`q${idx+1}`] = el;
+      values[`q${idx+1}`] = 4; // עוגן גבוה – 4 כוכבים בהתחלה
+      for (let i = 1; i <= 5; i++) {
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'star'; b.textContent = '★';
+        b.onclick = () => {
+          values[`q${idx+1}`] = i;
+          [...el.children].forEach((s, sIdx) => s.classList.toggle('active', sIdx < i));
+          updateProgress();
+          showReward(`מעולה! קרוב ל-5 כוכבים מושלמים! ⭐`);
+        };
+        el.appendChild(b);
+      }
+      // הדלק 4 כוכבים בהתחלה
+      [...el.children].forEach((s, sIdx) => s.classList.toggle('active', sIdx < 4));
+    });
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const avg = Object.values(values).reduce((a,b) => a + b, 0) / 5;
+    const progress = document.getElementById('progressBar');
+    progress.style.animationDuration = `${(5 - avg) * 0.5}s`;
+    progress.classList.add('show');
+    document.getElementById('progressText').textContent = `${avg.toFixed(1)}/5 – תודה שנתת לנו את הזמן שלך! 😊`;
+    if (avg >= 4.5) showReward('פנטסטי! אתה מכוון ל-5 כוכבים מושלמים! 💪');
+  }
+
+  function showReward(text) {
+    const reward = document.getElementById('rewardText');
+    reward.textContent = text;
+    reward.style.display = 'block';
+    setTimeout(() => reward.style.display = 'none', 2000);
+  }
+
+  function openRating() {
+    document.getElementById('rating').showModal();
+    initStars();
+  }
+
+  function openCV() { document.getElementById('cv').showModal(); }
+
+  const GOOGLE_REVIEW_URL = "https://search.google.com/local/writereview?placeid=ChIJZ2KSBii7HRURMTKVTdJGT8w";
+
+  document.getElementById('rateForm').onsubmit = e => {
+    e.preventDefault();
+    if (Object.values(values).filter(v => v > 0).length < 5) return alert('נא למלא את כל 5 השאלות');
+    const avg = Object.values(values).reduce((a,b) => a + b, 0) / 5;
+    localStorage.setItem('doral_rate_'+Date.now(), JSON.stringify({values, avg, date: new Date().toISOString()}));
+    if (avg >= 4.1) {
+      document.getElementById('rateOk').textContent = 'מעולה! מועברים ל-Google עכשיו...';
+      document.getElementById('rateOk').style.display = 'block';
+      setTimeout(() => window.location.href = GOOGLE_REVIEW_URL, 1500);
+    } else {
+      document.getElementById('rateOk').textContent = 'תודה על המשוב הכנה! אתה עוזר למתאמנים אחרים 💪';
+      document.getElementById('rateOk').style.display = 'block';
+      setTimeout(() => document.getElementById('rating').close(), 2000);
+    }
+  };
+
+  document.getElementById('cvForm').onsubmit = e => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    localStorage.setItem('doral_cv_'+Date.now(), JSON.stringify(Object.fromEntries(fd)));
+    document.getElementById('cvok').style.display = 'block';
+    setTimeout(() => { document.getElementById('cv').close(); e.target.reset(); }, 2200);
+  };
+</script>
+</body>
+</html>
