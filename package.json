@@ -1,7 +1,11 @@
 {
-  "name": "my-v0-project",
+  "name": "sasha-tattoos",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shoam321/Sasha-Tattoo.git"
+  },
   "scripts": {
     "build": "next build",
     "dev": "next dev",
