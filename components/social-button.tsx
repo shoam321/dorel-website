@@ -30,7 +30,7 @@ export default function SocialButton({
       style={style}
     >
       {icon && <span className="w-5 h-5 flex-shrink-0">{icon}</span>}
-      <span className="text-[90%] leading-none">{label}</span>
+  <span className="text-[84%] leading-none">{label}</span>
     </a>
   )
 }
