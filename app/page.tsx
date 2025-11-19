@@ -164,26 +164,9 @@ export default function Home() {
           © {new Date().getFullYear()} סטודיו סשה Tattoos
         </div>
 
-        <div className="border-t border-zinc-800 px-4 py-3 bg-black/70">
-          <div className="flex items-center justify-between gap-4">
-            <div className="relative w-[50px] h-[50px] flex-shrink-0">
-              <Image
-                src="/images/studio-logo.png"
-                alt="סטודיו סשה Tattoos לוגו"
-                width={50}
-                height={50}
-                className="drop-shadow-lg"
-                style={{ clipPath: "circle(40% at 50% 50%)" }}
-              />
-            </div>
-            <div className="text-center space-y-0.5 flex-grow">
-              <p className="text-xs text-zinc-300 m-0">עליזה בגין 123 טבריה</p>
-              <p className="text-xs text-zinc-300 m-0">052-620-2701</p>
-              <p className="text-[10px] text-zinc-500 m-0">All rights reserved Shoam Taitler</p>
-            </div>
-            <div className="w-[50px] flex-shrink-0" />
-          </div>
-        </div>
+                </div>
+
+      </div>
       </div>
 
       {/* Portfolio Carousel Section */}
@@ -208,6 +191,35 @@ export default function Home() {
 
       {/* Rating Dialog */}
       <RatingDialog ref={ratingDialogRef} onComplete={handleRatingComplete} />
+
+      {/* Footer */}
+      <footer className="relative z-10 w-full mt-12 py-6 sm:py-8 border-t border-zinc-800 bg-black/60 backdrop-blur-md">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
+            {/* Logo */}
+            <div className="relative w-12 h-12 flex-shrink-0">
+              <Image
+                src="/images/studio-logo.png"
+                alt="סטודיו סשה Tattoos לוגו"
+                width={48}
+                height={48}
+                className="drop-shadow-lg"
+                style={{ clipPath: "circle(40% at 50% 50%)" }}
+              />
+            </div>
+
+            {/* Info */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 text-center sm:text-right flex-grow">
+              <div className="flex flex-col gap-1">
+                <p className="text-sm text-zinc-300">עליזה בגין 123 טבריה</p>
+                <p className="text-sm font-semibold text-red-400">052-620-2701</p>
+              </div>
+              <div className="hidden sm:block w-px h-8 bg-zinc-700" />
+              <p className="text-xs text-zinc-500">© 2025 סטודיו סשה Tattoos - All rights reserved</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
   )
 }
