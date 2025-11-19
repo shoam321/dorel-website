@@ -6,6 +6,7 @@ import { useState } from "react"
 import Toast from "@/components/toast"
 import RatingDialog from "@/components/rating-dialog"
 import PortfolioCarousel from "@/components/portfolio-carousel"
+import LanguagePicker from "@/components/language-picker"
 import Image from "next/image"
 
 export default function Home() {
@@ -71,7 +72,7 @@ export default function Home() {
 
       {/* Language Picker */}
       <div className="fixed top-4 left-4 sm:top-6 sm:left-6 z-50">
-        <div className="gtranslate_wrapper"></div>
+        <LanguagePicker />
       </div>
 
       <main className="relative z-10 flex-1 flex flex-col items-center justify-start py-6 sm:py-8">
