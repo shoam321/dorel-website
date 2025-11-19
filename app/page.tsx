@@ -198,7 +198,7 @@ export default function Home() {
 
       {/* Shapo Widget Section */}
       <div className="relative z-10 w-[min(420px,92vw)] mt-6 sm:mt-8">
-        <div className="bg-black/70 backdrop-blur-md border border-zinc-800 rounded-3xl shadow-2xl overflow-hidden p-4">
+        <div className="bg-black/30 backdrop-blur-md border border-zinc-800 rounded-3xl shadow-2xl overflow-hidden p-4">
           <div id="shapo-widget-878653ba3bbe62a9a2c1"></div>
         </div>
       </div>
