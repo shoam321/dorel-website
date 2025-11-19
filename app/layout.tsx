@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script"
+import { I18nProvider } from "@/components/i18n-provider"
 import "./globals.css"
 
 const _geist = Geist({ subsets: ["latin", "hebrew"] })
@@ -39,7 +40,9 @@ export default function RootLayout({
   return (
     <html lang="he" dir="rtl">
       <body className={`font-sans antialiased`}>
-        {children}
+        <I18nProvider>
+          {children}
+        </I18nProvider>
         <Analytics />
         <Script
           src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js"

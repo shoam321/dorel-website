@@ -1,0 +1,17 @@
+{
+  "title": "Studio Sasha Tattoos",
+  "subtitle": "Personal attention studio with precise work",
+  "location": "Tiberias 📍",
+  "phone": "052-620-2701",
+  "rateUs": "⭐ Rate Us!",
+  "shareWithFriend": "💖 Share With Friend",
+  "portfolio": "Portfolio 📸",
+  "address": "Eliza Begin 123 Tiberias",
+  "allRightsReserved": "All rights reserved Shoam Taitler",
+  "copyright": "© {{year}} Studio Sasha Tattoos",
+  "linkCopied": "Link copied 🙂",
+  "copyFailed": "Couldn't copy, you can copy manually.",
+  "shareNotSupported": "Browser does not support sharing. Copy the address from the address bar.",
+  "ratingComplete": "Thank you, your opinion matters to us",
+  "ratingError": "Error submitting feedback"
+}
