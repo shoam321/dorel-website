@@ -29,6 +29,7 @@ export default function LanguagePicker({ currentLang = "he" }: LanguagePickerPro
   const handleLanguageChange = (langCode: string) => {
     i18n.changeLanguage(langCode)
     localStorage.setItem("gtranslate_language", langCode)
+    localStorage.setItem("i18nextLng", langCode)
     setIsOpen(false)
   }
 
