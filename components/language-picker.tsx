@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
 
 interface LanguageOption {
   code: string
@@ -23,7 +22,6 @@ interface LanguagePickerProps {
 }
 
 export default function LanguagePicker({ currentLang = "he" }: LanguagePickerProps) {
-  const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
   const [selectedLang, setSelectedLang] = useState(currentLang)
 
@@ -33,11 +31,7 @@ export default function LanguagePicker({ currentLang = "he" }: LanguagePickerPro
     localStorage.setItem("gtranslate_language", langCode)
     
     // Navigate to the language route
-    if (langCode === "en") {
-      router.push("/en")
-    } else {
-      router.push(`/${langCode}`)
-    }
+    window.location.href = `/${langCode}`
   }
 
   const currentLangObj = languages.find((l) => l.code === selectedLang)
