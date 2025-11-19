@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 interface LanguageOption {
   code: string
@@ -16,39 +17,29 @@ const languages: LanguageOption[] = [
   { code: "th", name: "ไทย", flag: "🇹🇭" },
 ]
 
-export default function LanguagePicker() {
-  const [currentLanguage, setCurrentLanguage] = useState("en")
-  const [isOpen, setIsOpen] = useState(false)
+interface LanguagePickerProps {
+  currentLang?: string
+}
 
-  useEffect(() => {
-    // Get current language from URL or localStorage
-    const urlLang = window.location.pathname.split("/")[1]
-    if (urlLang && languages.some((l) => l.code === urlLang)) {
-      setCurrentLanguage(urlLang)
-    } else {
-      const storedLang = localStorage.getItem("gtranslate_language") || "en"
-      setCurrentLanguage(storedLang)
-    }
-  }, [])
+export default function LanguagePicker({ currentLang = "en" }: LanguagePickerProps) {
+  const router = useRouter()
+  const [isOpen, setIsOpen] = useState(false)
+  const [selectedLang, setSelectedLang] = useState(currentLang)
 
   const handleLanguageChange = (langCode: string) => {
-    setCurrentLanguage(langCode)
-    localStorage.setItem("gtranslate_language", langCode)
+    setSelectedLang(langCode)
     setIsOpen(false)
-
-    // Trigger Google Translate
-    const event = new Event("gtranslate_element_on_change")
-    window.dispatchEvent(event)
-
-    // Navigate to language-specific URL
+    localStorage.setItem("gtranslate_language", langCode)
+    
+    // Navigate to the language route
     if (langCode === "en") {
-      window.location.href = "/"
+      router.push("/en")
     } else {
-      window.location.href = `/${langCode}/`
+      router.push(`/${langCode}`)
     }
   }
 
-  const currentLangObj = languages.find((l) => l.code === currentLanguage)
+  const currentLangObj = languages.find((l) => l.code === selectedLang)
 
   return (
     <div className="relative">
@@ -68,7 +59,7 @@ export default function LanguagePicker() {
               key={lang.code}
               onClick={() => handleLanguageChange(lang.code)}
               className={`w-full px-4 py-2.5 text-left text-sm flex items-center gap-2 transition-colors ${
-                currentLanguage === lang.code
+                selectedLang === lang.code
                   ? "bg-red-600/80 text-white"
                   : "text-zinc-300 hover:bg-zinc-800/60 hover:text-white"
               }`}
