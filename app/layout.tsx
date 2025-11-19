@@ -4,9 +4,10 @@ import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script"
 import { I18nProvider } from "@/components/i18n-provider"
+import HtmlDirManager from "@/components/html-dir-manager"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin", "hebrew"] })
+const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
@@ -41,6 +42,7 @@ export default function RootLayout({
     <html lang="he" dir="rtl">
       <body className={`font-sans antialiased`}>
         <I18nProvider>
+          <HtmlDirManager />
           {children}
         </I18nProvider>
         <Analytics />
