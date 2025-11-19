@@ -10,6 +10,7 @@ interface LanguageOption {
 }
 
 const languages: LanguageOption[] = [
+  { code: "he", name: "עברית", flag: "🇮🇱" },
   { code: "en", name: "English", flag: "🇺🇸" },
   { code: "es", name: "Español", flag: "🇪🇸" },
   { code: "ru", name: "Русский", flag: "🇷🇺" },
@@ -21,7 +22,7 @@ interface LanguagePickerProps {
   currentLang?: string
 }
 
-export default function LanguagePicker({ currentLang = "en" }: LanguagePickerProps) {
+export default function LanguagePicker({ currentLang = "he" }: LanguagePickerProps) {
   const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
   const [selectedLang, setSelectedLang] = useState(currentLang)

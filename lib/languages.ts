@@ -1,6 +1,10 @@
 import type React from "react"
 
 export const metadata = {
+  he: {
+    title: "סטודיו סשה Tattoos — אומנות קעקועים",
+    description: "סטודיו ביחס אישי ועבודה מדויקת",
+  },
   en: {
     title: "Studio Sasha Tattoos — Tattoo Art",
     description: "Personal attention studio with precise work",
@@ -24,6 +28,7 @@ export const metadata = {
 }
 
 export const languages = {
+  he: { name: "עברית", flag: "🇮🇱", dir: "rtl" },
   en: { name: "English", flag: "🇺🇸", dir: "ltr" },
   es: { name: "Español", flag: "🇪🇸", dir: "ltr" },
   ru: { name: "Русский", flag: "🇷🇺", dir: "ltr" },
@@ -32,6 +37,23 @@ export const languages = {
 }
 
 export const translations = {
+  he: {
+    title: "סטודיו סשה Tattoos",
+    subtitle: "סטודיו ביחס אישי ועבודה מדויקת",
+    location: "טבריה 📍",
+    phone: "052-620-2701",
+    rateUs: "⭐ דרגו אותנו!",
+    shareWithFriend: "💖 ספרו לחבר",
+    portfolio: "תיקיית עבודות 📸",
+    address: "עליזה בגין 123 טבריה",
+    allRightsReserved: "כל הזכויות שמורות לשוהם תייטלר",
+    copyright: "© {year} סטודיו סשה Tattoos",
+    linkCopied: "הקישור הועתק 🙂",
+    copyFailed: "לא הצלחתי להעתיק, אפשר להעתיק ידנית.",
+    shareNotSupported: "הדפדפן לא תומך בשיתוף. העתק/י את הכתובת מהשורת כתובת.",
+    ratingComplete: "תודה רבה, דעתך חשובה לנו",
+    ratingError: "אירעה שגיאה בשליחת הדעה",
+  },
   en: {
     title: "Studio Sasha Tattoos",
     subtitle: "Personal attention studio with precise work",

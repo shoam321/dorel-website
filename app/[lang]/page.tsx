@@ -82,7 +82,7 @@ export default function LanguagePage({ params }: PageProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 z-0" />
 
       {/* Language Picker */}
-      <div className={`fixed top-4 ${dir === 'rtl' ? 'right-4' : 'left-4'} sm:top-6 ${dir === 'rtl' ? 'sm:right-6' : 'sm:left-6'} z-50`}>
+      <div className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50">
         <LanguagePicker currentLang={lang} />
       </div>
 
