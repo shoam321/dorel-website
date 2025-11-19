@@ -96,14 +96,13 @@ export default function PortfolioCarousel() {
             key={index}
             className="keen-slider__slide flex items-center justify-center bg-black/50"
           >
-            <div className="relative w-full h-full min-h-[300px] sm:min-h-[400px]">
-              <Image
+            <div className="relative w-full h-auto">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src={image.url}
                 alt={image.alt}
-                fill
-                className="object-cover"
-                priority={index === 0}
-                unoptimized={image.url.startsWith('/')}
+                className="w-full h-auto object-cover"
+                loading={index === 0 ? 'eager' : 'lazy'}
               />
             </div>
           </div>
