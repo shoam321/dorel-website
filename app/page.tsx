@@ -69,6 +69,11 @@ export default function Home() {
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 z-0" />
 
+      {/* Language Picker */}
+      <div className="fixed top-4 left-4 sm:top-6 sm:left-6 z-50">
+        <div className="gtranslate_wrapper"></div>
+      </div>
+
       <main className="relative z-10 flex-1 flex flex-col items-center justify-start py-6 sm:py-8">
         <div className="w-[min(420px,92vw)] bg-black/45 backdrop-blur-md border border-zinc-800 rounded-3xl shadow-2xl overflow-hidden">
           <div className="flex justify-center pt-6 pb-2">
