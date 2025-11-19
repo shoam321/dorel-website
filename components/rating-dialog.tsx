@@ -43,7 +43,7 @@ const RatingDialog = forwardRef<HTMLDialogElement, RatingDialogProps>(({ onCompl
       const starDisplay = (rating: number) => '⭐'.repeat(rating) + ' ' + `(${rating}/5)`
       
       formData.append('החוויה הכללית', starDisplay(ratings.q1))
-      formData.append('איכות ההדרכה', starDisplay(ratings.q2))
+      formData.append('איכות העבודה של המקעקע', starDisplay(ratings.q2))
       formData.append('רמת השירות', starDisplay(ratings.q3))
       formData.append('אווירה וניקיון', starDisplay(ratings.q4))
       formData.append('המלצה לאחרים', starDisplay(ratings.q5))
@@ -80,7 +80,7 @@ const RatingDialog = forwardRef<HTMLDialogElement, RatingDialogProps>(({ onCompl
 
   const questions = [
     "איך היית מדרג/ת את החוויה הכללית שלך אצלנו?",
-    "איך היית מדרג/ת את איכות ההדרכה של המדריכים?",
+    "איך היית מדרג/ת את איכות העבודה של המקעקע?",
     "איך היית מדרג/ת את רמת השירות והיחס שקיבלת?",
     "איך היית מדרג/ת את האווירה והניקיון במתחם?",
     "באיזו מידה היית ממליץ/ה על הסטודיו לחבר או קולגה?",
@@ -89,7 +89,7 @@ const RatingDialog = forwardRef<HTMLDialogElement, RatingDialogProps>(({ onCompl
   return (
     <dialog
       ref={ref}
-      className="border-2 border-zinc-800 rounded-2xl p-4 w-[min(92vw,720px)] shadow-2xl backdrop:bg-black/60 self-center bg-zinc-950"
+      className="border-2 border-zinc-800 rounded-2xl p-4 w-[min(92vw,720px)] shadow-2xl backdrop:bg-black/60 self-center bg-zinc-950 opacity-70"
     >
       <h3 className="m-0 mb-2.5 text-base font-bold text-white">דעתכם חשובה לנו</h3>
       <p className="m-0 mb-2 text-sm text-zinc-400">דרגו כל סעיף בין ⭐1 ל-⭐5</p>
