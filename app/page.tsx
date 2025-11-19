@@ -5,6 +5,7 @@ import { useRef } from "react"
 import { useState } from "react"
 import Toast from "@/components/toast"
 import RatingDialog from "@/components/rating-dialog"
+import PortfolioCarousel from "@/components/portfolio-carousel"
 import Image from "next/image"
 
 export default function Home() {
@@ -61,7 +62,7 @@ export default function Home() {
 
   return (
     <main
-      className="min-h-dvh flex items-center justify-center relative bg-cover bg-center"
+      className="min-h-dvh flex flex-col items-center justify-start relative bg-cover bg-center py-6 sm:py-8"
       style={{ backgroundImage: "url(/images/mandala-background.jpg)" }}
       dir="rtl"
       lang="he"
@@ -180,6 +181,16 @@ export default function Home() {
             </div>
             <div className="w-[50px] flex-shrink-0" />
           </div>
+        </div>
+      </div>
+
+      {/* Portfolio Carousel Section */}
+      <div className="relative z-10 w-[min(420px,92vw)] mt-6 sm:mt-8">
+        <div className="bg-black/45 backdrop-blur-md border border-zinc-800 rounded-3xl shadow-2xl overflow-hidden p-4">
+          <h2 className="text-center font-bold text-xl sm:text-2xl mb-4 text-white tracking-wide">
+            תיקיית עבודות 📸
+          </h2>
+          <PortfolioCarousel />
         </div>
       </div>
 

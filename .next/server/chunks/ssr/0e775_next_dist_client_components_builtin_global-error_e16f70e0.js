@@ -1,0 +1,3 @@
+module.exports=[74313,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(49193);a.n(d("[project]/Desktop/Project/v0-sasha-tattoos-main/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},1906,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(49193);a.n(d("[project]/Desktop/Project/v0-sasha-tattoos-main/node_modules/next/dist/client/components/builtin/global-error.js"))},65807,a=>{"use strict";a.i(74313);var b=a.i(1906);a.n(b)}];
+
+//# sourceMappingURL=0e775_next_dist_client_components_builtin_global-error_e16f70e0.js.map

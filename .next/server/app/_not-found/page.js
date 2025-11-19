@@ -1,0 +1,13 @@
+var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/_not-found/page.js")
+R.c("server/chunks/ssr/[root-of-the-server]__f9db770a._.js")
+R.c("server/chunks/ssr/0e775_next_dist_adbad72f._.js")
+R.c("server/chunks/ssr/0e775_next_dist_esm_build_templates_app-page_e3a76f84.js")
+R.c("server/chunks/ssr/[root-of-the-server]__b675ba9c._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__e12e6057._.js")
+R.c("server/chunks/ssr/0e775_next_dist_dfd6c177._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__73f21408._.js")
+R.c("server/chunks/ssr/0e775_next_dist_client_components_c5500fd5._.js")
+R.c("server/chunks/ssr/0e775_next_dist_client_components_builtin_forbidden_1ad0da7b.js")
+R.c("server/chunks/ssr/bac3e_v0-sasha-tattoos-main__next-internal_server_app__not-found_page_actions_524ac847.js")
+R.m(62780)
+module.exports=R.m(62780).exports
