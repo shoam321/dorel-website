@@ -62,11 +62,17 @@ export default function Home() {
 
   return (
     <main
-      className="min-h-dvh flex flex-col items-center justify-start relative bg-cover bg-center py-6 sm:py-8"
-      style={{ backgroundImage: "url(/images/mandala-background.jpg)" }}
+      className="min-h-dvh flex flex-col items-center justify-start relative bg-cover bg-center py-6 sm:py-8 wavy-background"
       dir="rtl"
       lang="he"
     >
+      {/* Wavy Background Circles */}
+      <div id="circle-small"></div>
+      <div id="circle-medium"></div>
+      <div id="circle-large"></div>
+      <div id="circle-xlarge"></div>
+      <div id="circle-xxlarge"></div>
+
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 z-0" />
 
       <div className="relative z-10 w-[min(420px,92vw)] bg-black/45 backdrop-blur-md border border-zinc-800 rounded-3xl shadow-2xl overflow-hidden">
