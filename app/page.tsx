@@ -112,7 +112,7 @@ export default function Home() {
         <div className="px-4 py-3">
           <div className="flex justify-center gap-3">
             <a
-              href="https://www.facebook.com/profile.php?id=61572348743736"
+              href="https://www.facebook.com/profile.php?id=100005352488791"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center w-12 h-12 rounded-full bg-[#1877F2] text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-150"
