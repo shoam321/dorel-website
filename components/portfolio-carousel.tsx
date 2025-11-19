@@ -85,7 +85,7 @@ export default function PortfolioCarousel() {
   }
 
   return (
-    <div className="relative w-full bg-black/30 backdrop-blur-sm rounded-2xl overflow-hidden">
+    <div className="relative w-full bg-black/30 backdrop-blur-sm rounded-2xl overflow-hidden opacity-70">
       {/* Carousel Container */}
       <div
         ref={sliderRef}
