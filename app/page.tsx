@@ -62,7 +62,8 @@ export default function Home() {
 
   return (
     <main
-      className="min-h-dvh flex flex-col items-center justify-start relative bg-cover bg-center py-6 sm:py-8 wavy-background"
+      className="min-h-dvh flex flex-col items-center justify-start relative bg-cover bg-center py-6 sm:py-8"
+      style={{ backgroundImage: "url(/images/mandala-background.jpg)" }}
       dir="rtl"
       lang="he"
     >

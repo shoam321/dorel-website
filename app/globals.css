@@ -126,20 +126,8 @@
 
 /* Wavy Background Animation */
 .wavy-background {
-  background: #00adef;
-  background: -moz-linear-gradient(-45deg, #00adef 0%, #0076e5 100%);
-  background: -webkit-linear-gradient(-45deg, #00adef 0%, #0076e5 100%);
-  background: linear-gradient(135deg, #00adef 0%, #0076e5 100%);
   position: relative;
   overflow: hidden;
-}
-
-.wavy-background::before,
-.wavy-background::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
 }
 
 #circle-small {
@@ -149,10 +137,11 @@
   position: absolute;
   top: 200px;
   left: -150px;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
   width: 300px;
   height: 300px;
   border-radius: 50%;
+  z-index: 1;
 }
 
 #circle-medium {
@@ -162,10 +151,11 @@
   position: absolute;
   top: 50px;
   left: -300px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
   width: 600px;
   height: 600px;
   border-radius: 50%;
+  z-index: 1;
 }
 
 #circle-large {
@@ -175,10 +165,11 @@
   position: absolute;
   top: -100px;
   left: -450px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
   width: 900px;
   height: 900px;
   border-radius: 50%;
+  z-index: 1;
 }
 
 #circle-xlarge {
@@ -188,10 +179,11 @@
   position: absolute;
   top: -250px;
   left: -600px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
   width: 1200px;
   height: 1200px;
   border-radius: 50%;
+  z-index: 1;
 }
 
 #circle-xxlarge {
@@ -201,10 +193,11 @@
   position: absolute;
   top: -400px;
   left: -750px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
   width: 1500px;
   height: 1500px;
   border-radius: 50%;
+  z-index: 1;
 }
 
 @keyframes circle-small-scale {
