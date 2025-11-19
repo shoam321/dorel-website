@@ -13,5 +13,16 @@
   "copyFailed": "Couldn't copy, you can copy manually.",
   "shareNotSupported": "Browser does not support sharing. Copy the address from the address bar.",
   "ratingComplete": "Thank you, your opinion matters to us",
-  "ratingError": "Error submitting feedback"
+  "ratingError": "Error submitting feedback",
+  "yourOpinionMatters": "Your opinion matters to us",
+  "rateEachSection": "Rate each section between ⭐1 and ⭐5",
+  "ratingIncomplete": "Please rate all 5 questions",
+  "q1_experience_label": "How would you rate your overall experience with us?",
+  "q2_quality_label": "How would you rate the quality of the tattoo work?",
+  "q3_service_label": "How would you rate the level of service and treatment?",
+  "q4_ambiance_label": "How would you rate the atmosphere and cleanliness of the studio?",
+  "q5_recommend_label": "How likely are you to recommend our studio to a friend or colleague?",
+  "submitting": "Submitting...",
+  "submit": "Submit",
+  "close": "Close"
 }

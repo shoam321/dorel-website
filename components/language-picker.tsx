@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 
 interface LanguageOption {
   code: string
@@ -22,19 +23,16 @@ interface LanguagePickerProps {
 }
 
 export default function LanguagePicker({ currentLang = "he" }: LanguagePickerProps) {
+  const { i18n } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedLang, setSelectedLang] = useState(currentLang)
 
   const handleLanguageChange = (langCode: string) => {
-    setSelectedLang(langCode)
-    setIsOpen(false)
+    i18n.changeLanguage(langCode)
     localStorage.setItem("gtranslate_language", langCode)
-    
-    // Navigate to the language route
-    window.location.href = `/${langCode}`
+    setIsOpen(false)
   }
 
-  const currentLangObj = languages.find((l) => l.code === selectedLang)
+  const currentLangObj = languages.find((l) => l.code === i18n.language)
 
   return (
     <div className="relative">
@@ -54,7 +52,7 @@ export default function LanguagePicker({ currentLang = "he" }: LanguagePickerPro
               key={lang.code}
               onClick={() => handleLanguageChange(lang.code)}
               className={`w-full px-4 py-2.5 text-left text-sm flex items-center gap-2 transition-colors ${
-                selectedLang === lang.code
+                i18n.language === lang.code
                   ? "bg-red-600/80 text-white"
                   : "text-zinc-300 hover:bg-zinc-800/60 hover:text-white"
               }`}

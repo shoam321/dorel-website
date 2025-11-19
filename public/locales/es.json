@@ -13,5 +13,16 @@
   "copyFailed": "No se pudo copiar, copia manualmente.",
   "shareNotSupported": "El navegador no es compatible con compartir. Copia la dirección de la barra de direcciones.",
   "ratingComplete": "Gracias, tu opinión nos importa",
-  "ratingError": "Error al enviar comentarios"
+  "ratingError": "Error al enviar comentarios",
+  "yourOpinionMatters": "Tu opinión nos importa",
+  "rateEachSection": "Califica cada sección entre ⭐1 y ⭐5",
+  "ratingIncomplete": "Por favor califica las 5 preguntas",
+  "q1_experience_label": "¿Cómo calificarías tu experiencia general con nosotros?",
+  "q2_quality_label": "¿Cómo calificarías la calidad del trabajo del tatuaje?",
+  "q3_service_label": "¿Cómo calificarías el nivel de servicio y trato?",
+  "q4_ambiance_label": "¿Cómo calificarías la atmósfera y limpieza del estudio?",
+  "q5_recommend_label": "¿Qué probabilidad hay de que recomiendes nuestro estudio a un amigo o colega?",
+  "submitting": "Enviando...",
+  "submit": "Enviar",
+  "close": "Cerrar"
 }
