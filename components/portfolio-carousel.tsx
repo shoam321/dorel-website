@@ -32,20 +32,16 @@ const portfolioImages: PortfolioImage[] = [
     alt: 'tattoo portfolio 5',
   },
   {
-    url: 'https://lh3.googleusercontent.com/geougc-cs/AMBA38v_QeNOCMwQ0yabElT8lhSTKILoiONXJmY-5t3B2Fmc4ahVWPgCYmSHWhrRCM8QOUWvdePpUgp8blFiSiAXlvoOHRziMcNbT7uKlQbYe8FHBeK1wl7vUe2a5CtO6YY3VHFZOXOiAtAMz2Z0=s2732-w2732-h1214-rw',
+    url: 'https://lh3.googleusercontent.com/geougc-cs/AMBA38uTgDKNJz_EGpRY08sdewgiFDz3T5XP3do-Lc6n-usFaFk57IO1kiGB2MRFj0gxqogEmcFFznuac1IBBtmpXdlc1e5-a8CillV0yBb4NA6BozIwTTts_-q5-N3UgxRdJZrTmUmn7NnY6dE=s2732-w2732-h1214-rw',
     alt: 'tattoo portfolio 6',
   },
   {
-    url: 'https://lh3.googleusercontent.com/geougc-cs/AMBA38uTgDKNJz_EGpRY08sdewgiFDz3T5XP3do-Lc6n-usFaFk57IO1kiGB2MRFj0gxqogEmcFFznuac1IBBtmpXdlc1e5-a8CillV0yBb4NA6BozIwTTts_-q5-N3UgxRdJZrTmUmn7NnY6dE=s2732-w2732-h1214-rw',
+    url: 'https://lh3.googleusercontent.com/geougc-cs/AMBA38vDM8-JtJWuvpxtiONerI2iHYTSNtACabM-FcCsJpXnil5PoinOcOqFiAn6d09rsLC6yU-jScrvAkMaKhH39qrK1aHaLWqVsBi6GkJmD9oliMJ71hVFTN_idh1841I9e5Z6Msp69oks4-9R=s2732-w2732-h1214-rw',
     alt: 'tattoo portfolio 7',
   },
   {
-    url: 'https://lh3.googleusercontent.com/geougc-cs/AMBA38vDM8-JtJWuvpxtiONerI2iHYTSNtACabM-FcCsJpXnil5PoinOcOqFiAn6d09rsLC6yU-jScrvAkMaKhH39qrK1aHaLWqVsBi6GkJmD9oliMJ71hVFTN_idh1841I9e5Z6Msp69oks4-9R=s2732-w2732-h1214-rw',
-    alt: 'tattoo portfolio 8',
-  },
-  {
     url: 'https://lh3.googleusercontent.com/geougc-cs/AMBA38s8fnL7EfdMcnedJ5uMuFshDFf72N_X3rnx9iJhZMvgiWBEE59ezLRQ8GyNWh1KFpPgbbXzXyM7RwVjJzHNQskYTSVu18G2NQ2LM1kv6ulLaMYew3JkvasdxCkoEx6RX4Nu3fUmYLhvzB4=s2732-w2732-h1214-rw',
-    alt: 'tattoo portfolio 9',
+    alt: 'tattoo portfolio 8',
   },
 ]
 
@@ -98,17 +94,15 @@ export default function PortfolioCarousel() {
         {portfolioImages.map((image, index) => (
           <div
             key={index}
-            className="keen-slider__slide flex items-center justify-center bg-black/50"
+            className="keen-slider__slide"
           >
-            <div className="relative w-full h-auto">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={image.url}
-                alt={image.alt}
-                className="w-full h-auto object-cover"
-                loading={index === 0 ? 'eager' : 'lazy'}
-              />
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={image.url}
+              alt={image.alt}
+              className="w-full h-full object-cover"
+              loading={index === 0 ? 'eager' : 'lazy'}
+            />
           </div>
         ))}
       </div>
