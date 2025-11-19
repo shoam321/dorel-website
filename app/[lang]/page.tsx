@@ -16,10 +16,10 @@ interface PageProps {
 }
 
 export default function LanguagePage({ params }: PageProps) {
-  const lang = (params.lang as keyof typeof translations) || "en"
+  const lang = (params.lang as keyof typeof translations) || "he"
   const t = translations[lang]
   const langInfo = languages[lang]
-  const dir = langInfo?.dir || "ltr"
+  const dir = langInfo?.dir || "rtl"
 
   const [toastMessage, setToastMessage] = useState("")
   const [showToast, setShowToast] = useState(false)

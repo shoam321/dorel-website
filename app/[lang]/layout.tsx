@@ -15,7 +15,7 @@ export default function LanguageLayout({
   params: { lang: string }
 }) {
   const lang = params.lang
-  const langInfo = languages[lang as keyof typeof languages] || languages.en
+  const langInfo = languages[lang as keyof typeof languages] || languages.he
 
   return (
     <html lang={lang} dir={langInfo.dir}>
