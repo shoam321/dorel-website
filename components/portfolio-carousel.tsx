@@ -39,10 +39,6 @@ const portfolioImages: PortfolioImage[] = [
     url: 'https://lh3.googleusercontent.com/geougc-cs/AMBA38vDM8-JtJWuvpxtiONerI2iHYTSNtACabM-FcCsJpXnil5PoinOcOqFiAn6d09rsLC6yU-jScrvAkMaKhH39qrK1aHaLWqVsBi6GkJmD9oliMJ71hVFTN_idh1841I9e5Z6Msp69oks4-9R=s2732-w2732-h1214-rw',
     alt: 'tattoo portfolio 7',
   },
-  {
-    url: 'https://lh3.googleusercontent.com/geougc-cs/AMBA38s8fnL7EfdMcnedJ5uMuFshDFf72N_X3rnx9iJhZMvgiWBEE59ezLRQ8GyNWh1KFpPgbbXzXyM7RwVjJzHNQskYTSVu18G2NQ2LM1kv6ulLaMYew3JkvasdxCkoEx6RX4Nu3fUmYLhvzB4=s2732-w2732-h1214-rw',
-    alt: 'tattoo portfolio 8',
-  },
 ]
 
 export default function PortfolioCarousel() {
