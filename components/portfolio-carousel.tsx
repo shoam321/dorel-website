@@ -103,7 +103,7 @@ export default function PortfolioCarousel() {
                 fill
                 className="object-cover"
                 priority={index === 0}
-                unoptimized
+                unoptimized={image.url.startsWith('/')}
               />
             </div>
           </div>
