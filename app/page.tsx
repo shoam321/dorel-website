@@ -196,6 +196,11 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Shapo Widget Section */}
+      <div className="relative z-10 w-[min(420px,92vw)] mt-6 sm:mt-8">
+        <div id="shapo-widget-c066c42d59a6a0dea4bb"></div>
+      </div>
+
       {/* Toast */}
       <Toast message={toastMessage} isVisible={showToast} />
 

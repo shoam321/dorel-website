@@ -45,6 +45,12 @@ export default function RootLayout({
           src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js"
           strategy="lazyOnload"
         />
+        <Script
+          id="shapo-embed-js"
+          type="text/javascript"
+          src="https://cdn.shapo.io/js/embed.js"
+          defer
+        />
       </body>
     </html>
   )
