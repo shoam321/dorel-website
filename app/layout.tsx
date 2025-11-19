@@ -55,7 +55,7 @@ export default function RootLayout({
           id="gtranslate-config"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
-            __html: `window.gtranslateSettings = {"default_language":"he","url_structure":"sub_directory","languages":["he","en","fr","it","es","ru"],"wrapper_selector":".gtranslate_wrapper"}`,
+            __html: `window.gtranslateSettings = {"default_language":"en","url_structure":"sub_directory","languages":["en","es","ru","ar","th"],"wrapper_selector":".gtranslate_wrapper","flag_size":16,"flag_style":"3d"}`,
           }}
         />
         <Script
