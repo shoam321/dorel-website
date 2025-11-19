@@ -31,10 +31,6 @@ const portfolioImages: PortfolioImage[] = [
     url: 'https://lh3.googleusercontent.com/p/AF1QipMr6c_RaZdonqnw0_MFC5OWsAAZhld2oQ1fURFY=s680-w680-h510-rw',
     alt: 'tattoo portfolio 5',
   },
-  {
-    url: 'https://www.instagram.com/p/DNJKJoOM6Gq/media/?size=l',
-    alt: 'tattoo portfolio 6',
-  },
 ]
 
 export default function PortfolioCarousel() {
