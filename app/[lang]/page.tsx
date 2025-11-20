@@ -4,7 +4,6 @@ import { useRef, useState, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import Toast from "@/components/toast"
 import RatingDialog from "@/components/rating-dialog"
-import GoogleReviews from "@/components/google-reviews"
 import ProtocolGuide from "@/components/protocol-guide"
 import PortfolioCarousel from "@/components/portfolio-carousel"
 import LanguagePicker from "@/components/language-picker"
@@ -149,7 +148,6 @@ export default function LanguagePage({ params }: PageProps) {
             <div id="shapo-widget-878653ba3bbe62a9a2c1"></div>
           </div>
         </div>
-        <GoogleReviews />
         <ProtocolGuide />
       </main>
       <footer className="relative z-10 w-full bg-black/80 backdrop-blur-md border-t border-zinc-800 mt-8">
