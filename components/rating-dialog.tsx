@@ -41,34 +41,63 @@ const RatingDialog = forwardRef<HTMLDialogElement, RatingDialogProps>(({ onCompl
     setIsSubmitting(true)
 
     try {
-      // Send rating payload to n8n webhook
+      // Prepare shared data
+      const timestamp = new Date().toISOString()
+      const avgFixed = Number(average.toFixed(1))
+
+      // Build n8n JSON payload
       const WEBHOOK_URL = "https://shairouvinov78.app.n8n.cloud/webhook-test/submit-rating"
-      const payload = {
+      const n8nPayload = {
         businessName: "Studio Sasha Tattoos",
         language: i18n.language,
         ratings,
-        average: Number(average.toFixed(1)),
-        timestamp: new Date().toISOString(),
+        average: avgFixed,
+        timestamp,
       }
 
-      const response = await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      })
+      // Build Formspree FormData payload (preserve original formatting)
+      const formData = new FormData()
+      const starDisplay = (rating: number) => '⭐'.repeat(rating) + ' ' + `(${rating}/5)`
+      formData.append('q1_experience', starDisplay(ratings.q1))
+      formData.append('q2_quality', starDisplay(ratings.q2))
+      formData.append('q3_service', starDisplay(ratings.q3))
+      formData.append('q4_ambiance', starDisplay(ratings.q4))
+      formData.append('q5_recommend', starDisplay(ratings.q5))
+      formData.append('average_rating', `⭐ ${avgFixed}/5 ${avgFixed >= 4 ? '🎉' : ''}`)
+      formData.append('studio', 'Studio Sasha Tattoos 💫')
+      formData.append('submission_date', new Date().toLocaleString())
 
-      if (!response.ok) {
-        console.error("n8n webhook responded with error status", response.status)
-        // Non-blocking: still proceed to close and show completion UX
+      // Fire both requests in parallel (dual delivery)
+      const [n8nResp, formspreeResp] = await Promise.all([
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(n8nPayload),
+        }).catch(err => { console.error('n8n fetch error', err); return undefined }),
+        fetch('https://formspree.io/f/mpwbwpbe', {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' },
+        }).catch(err => { console.error('Formspree fetch error', err); return undefined }),
+      ])
+
+      if (!n8nResp || !n8nResp.ok) {
+        console.warn('n8n webhook failed or returned non-OK status')
       } else {
-        console.log("Sent to n8n successfully")
+        console.log('n8n webhook success')
       }
-    } catch (error) {
-      console.error("Error sending to n8n:", error)
-      // Non-blocking error; user still gets completion flow
+
+      if (!formspreeResp || !formspreeResp.ok) {
+        console.warn('Formspree submission failed or returned non-OK status')
+      } else {
+        console.log('Formspree submission success')
+      }
+    } catch (err) {
+      console.error('Dual delivery error:', err)
+      // Non-blocking: still proceed
     } finally {
       setIsSubmitting(false)
-      if (ref && "current" in ref && ref.current?.open) {
+      if (ref && 'current' in ref && ref.current?.open) {
         ref.current.close()
       }
       onComplete(average)
