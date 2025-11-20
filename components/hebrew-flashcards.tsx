@@ -144,7 +144,7 @@ export default function HebrewFlashcards() {
             </h3>
             <Sparkles size={18} className="text-purple-accent" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 rubik-font">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 rubik-font glow-title">
             טיפים לפני <span className="text-purple-gradient">הקעקוע הראשון</span>
           </h2>
         </div>
@@ -282,6 +282,20 @@ export default function HebrewFlashcards() {
           background: linear-gradient(to right, #8a2be2, #e0b0ff, #8a2be2);
           -webkit-background-clip: text;
           color: transparent;
+        }
+        @keyframes glowPulse {
+          0% {
+            text-shadow: 0 0 10px rgba(224, 176, 255, 0.25), 0 0 20px rgba(138, 43, 226, 0.25);
+          }
+          50% {
+            text-shadow: 0 0 18px rgba(224, 176, 255, 0.6), 0 0 30px rgba(138, 43, 226, 0.45);
+          }
+          100% {
+            text-shadow: 0 0 10px rgba(224, 176, 255, 0.25), 0 0 20px rgba(138, 43, 226, 0.25);
+          }
+        }
+        .glow-title {
+          animation: glowPulse 3.5s ease-in-out infinite;
         }
         .tattoo-motif {
           position: absolute;
