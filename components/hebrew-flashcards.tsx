@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { Droplet, Ban, Coffee, Moon, Sun, Shirt, Check, X, Sparkles } from "lucide-react"
 import { Heebo, Rubik } from "next/font/google"
@@ -130,6 +131,19 @@ const tips = [
 ]
 
 export default function HebrewFlashcards() {
+  const [flippedCards, setFlippedCards] = useState<Record<number, boolean>>({})
+
+  const toggleCard = (id: number) => {
+    setFlippedCards(prev => ({ ...prev, [id]: !prev[id] }))
+  }
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>, id: number) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault()
+      toggleCard(id)
+    }
+  }
+
   return (
     <section
       className={`py-16 relative overflow-visible w-full ${heebo.variable} ${rubik.variable}`}
@@ -160,8 +174,13 @@ export default function HebrewFlashcards() {
               key={tip.id}
               className="flip-card h-64 cursor-pointer"
               variants={cardVariants}
+              role="button"
+              tabIndex={0}
+              aria-pressed={Boolean(flippedCards[tip.id])}
+              onClick={() => toggleCard(tip.id)}
+              onKeyDown={event => handleKeyDown(event, tip.id)}
             >
-              <div className="flip-card-inner">
+              <div className={`flip-card-inner ${flippedCards[tip.id] ? "is-flipped" : ""}`}>
                 <div className="flip-card-front">
                   <div
                     className="tattoo-motif"
@@ -250,7 +269,8 @@ export default function HebrewFlashcards() {
           transform-style: preserve-3d;
         }
         .flip-card:hover .flip-card-inner,
-        .flip-card:focus-within .flip-card-inner {
+        .flip-card:focus-within .flip-card-inner,
+        .flip-card-inner.is-flipped {
           transform: rotateY(180deg);
         }
         .flip-card-front,
