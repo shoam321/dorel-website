@@ -36,47 +36,42 @@ const RatingDialog = forwardRef<HTMLDialogElement, RatingDialogProps>(({ onCompl
       return
     }
 
+    const average = ratingValues.reduce((a, b) => a + b, 0) / ratingValues.length
+
     setIsSubmitting(true)
 
     try {
-      const formData = new FormData()
-      const average = ratingValues.reduce((a, b) => a + b, 0) / ratingValues.length
+      // Send rating payload to n8n webhook
+      const WEBHOOK_URL = "https://shairouvinov78.app.n8n.cloud/webhook-test/submit-rating"
+      const payload = {
+        businessName: "Studio Sasha Tattoos",
+        language: i18n.language,
+        ratings,
+        average: Number(average.toFixed(1)),
+        timestamp: new Date().toISOString(),
+      }
 
-      const starDisplay = (rating: number) => '⭐'.repeat(rating) + ' ' + `(${rating}/5)`
-      
-      formData.append('q1_experience', starDisplay(ratings.q1))
-      formData.append('q2_quality', starDisplay(ratings.q2))
-      formData.append('q3_service', starDisplay(ratings.q3))
-      formData.append('q4_ambiance', starDisplay(ratings.q4))
-      formData.append('q5_recommend', starDisplay(ratings.q5))
-      formData.append('average_rating', `⭐ ${average.toFixed(1)}/5 ${average >= 4 ? '🎉' : ''}`)
-      formData.append('studio', 'Studio Sasha Tattoos 💫')
-      formData.append('submission_date', new Date().toLocaleString())
-
-      const response = await fetch('https://formspree.io/f/mpwbwpbe', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+      const response = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       })
 
-      if (response.ok) {
-        console.log('Form submitted successfully to Formspree')
-        
-        if (ref && "current" in ref && ref.current?.open) {
-          ref.current.close()
-        }
-
-        onComplete(average)
+      if (!response.ok) {
+        console.error("n8n webhook responded with error status", response.status)
+        // Non-blocking: still proceed to close and show completion UX
       } else {
-        throw new Error('Form submission failed')
+        console.log("Sent to n8n successfully")
       }
     } catch (error) {
-      console.error('Error submitting form:', error)
-      alert(t("ratingError") || "Error submitting rating")
+      console.error("Error sending to n8n:", error)
+      // Non-blocking error; user still gets completion flow
     } finally {
       setIsSubmitting(false)
+      if (ref && "current" in ref && ref.current?.open) {
+        ref.current.close()
+      }
+      onComplete(average)
     }
   }
 
