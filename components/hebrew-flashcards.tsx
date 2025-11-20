@@ -132,11 +132,10 @@ const tips = [
 export default function HebrewFlashcards() {
   return (
     <section
-      className={`py-20 bg-[#0e0a13] relative overflow-hidden ${heebo.variable} ${rubik.variable}`}
+      className={`py-16 relative overflow-visible w-full ${heebo.variable} ${rubik.variable}`}
       dir="rtl"
     >
-      <div className="bg-glow-purple" />
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-4 text-purple-accent/80">
             <Sparkles size={18} className="text-purple-accent" />
@@ -160,7 +159,11 @@ export default function HebrewFlashcards() {
           viewport={{ once: true, amount: 0.2 }}
         >
           {tips.map((tip, index) => (
-            <motion.div key={tip.id} className="flip-card h-64 cursor-pointer" variants={cardVariants}>
+            <motion.div
+              key={tip.id}
+              className="flip-card h-64 cursor-pointer"
+              variants={cardVariants}
+            >
               <div className="flip-card-inner">
                 <div className="flip-card-front">
                   <div
@@ -220,18 +223,26 @@ export default function HebrewFlashcards() {
         .heebo-font {
           font-family: "Heebo", var(--font-heebo), system-ui, -apple-system, sans-serif;
         }
-        .bg-glow-purple {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          z-index: 0;
-          background: radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.08), rgba(0, 0, 0, 0) 70%);
+        @keyframes cardFloat {
+          0% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
+          100% {
+            transform: translateY(0px);
+          }
         }
         .flip-card {
           perspective: 1000px;
+          animation: cardFloat 7s ease-in-out infinite;
+        }
+        .flip-card:nth-of-type(2n) {
+          animation-delay: 0.6s;
+        }
+        .flip-card:nth-of-type(3n) {
+          animation-delay: 1.2s;
         }
         .flip-card-inner {
           position: relative;
