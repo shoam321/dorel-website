@@ -24,5 +24,17 @@
   "q5_recommend_label": "¿Qué probabilidad hay de que recomiendes nuestro estudio a un amigo o colega?",
   "submitting": "Enviando...",
   "submit": "Enviar",
-  "close": "Cerrar"
+  "close": "Cerrar",
+  "flashcards": {
+    "sectionLabel": "Preparación Tattoo",
+    "heading": "Consejos Antes del Primer Tatuaje",
+    "doLabel": "Haz",
+    "dontLabel": "No hagas",
+    "tip1": { "title": "Hidratación", "content": "Bebe mucha agua en las 24h previas. La piel hidratada recibe mejor la tinta y sangra menos." },
+    "tip2": { "title": "Alcohol", "content": "Evita el alcohol 24h – adelgaza la sangre y empeora el sangrado y el resultado final." },
+    "tip3": { "title": "Comida Equilibrada", "content": "No llegues en ayunas. Come algo nutritivo una hora antes para estabilizar el azúcar." },
+    "tip4": { "title": "Ropa Cómoda", "content": "Usa ropa oscura y suelta. La tinta puede manchar y necesitamos acceso fácil al área." },
+    "tip5": { "title": "Sol & Bronceado", "content": "Nada de quemaduras solares ni bronceado reciente. Evita sol fuerte la semana previa." },
+    "tip6": { "title": "Sueño & Descanso", "content": "Duerme bien la noche anterior. Tu cuerpo necesita energía para manejar el dolor con calma." }
+  }
 }

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { motion } from "framer-motion"
 import { Droplet, Ban, Coffee, Moon, Sun, Shirt, Check, X, Sparkles } from "lucide-react"
 import { Heebo, Rubik } from "next/font/google"
@@ -131,6 +132,8 @@ const tips = [
 ]
 
 export default function HebrewFlashcards() {
+  const { t, i18n } = useTranslation()
+  const dir = i18n.language === 'he' || i18n.language === 'ar' ? 'rtl' : 'ltr'
   const [flippedCards, setFlippedCards] = useState<Record<number, boolean>>({})
 
   const toggleCard = (id: number) => {
@@ -147,19 +150,19 @@ export default function HebrewFlashcards() {
   return (
     <section
       className={`py-16 relative overflow-visible w-full ${heebo.variable} ${rubik.variable}`}
-      dir="rtl"
+      dir={dir}
     >
       <div className="container mx-auto px-6 relative">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-4 text-purple-accent/80">
             <Sparkles size={18} className="text-purple-accent" />
             <h3 className="text-sm uppercase tracking-[0.4em] font-medium text-purple-accent/80 rubik-font">
-              הכנה לקעקוע
+              {t('flashcards.sectionLabel')}
             </h3>
             <Sparkles size={18} className="text-purple-accent" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 rubik-font glow-title title-outline">
-            טיפים לפני הקעקוע הראשון
+            {t('flashcards.heading')}
           </h2>
         </div>
         <motion.div
@@ -169,7 +172,14 @@ export default function HebrewFlashcards() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {tips.map((tip, index) => (
+          {[
+            { id:1, type:'do', key:'tip1' },
+            { id:2, type:'dont', key:'tip2' },
+            { id:3, type:'do', key:'tip3' },
+            { id:4, type:'do', key:'tip4' },
+            { id:5, type:'dont', key:'tip5' },
+            { id:6, type:'do', key:'tip6' },
+          ].map((tip, index) => (
             <motion.div
               key={tip.id}
               className="flip-card h-64 cursor-pointer"
@@ -193,17 +203,17 @@ export default function HebrewFlashcards() {
                         tip.type === "do" ? "bg-emerald-900/30 text-emerald-400" : "bg-red-900/30 text-red-400"
                       }`}
                     >
-                      {tip.icon}
+                      {tip.type === 'do' ? <Check size={30} /> : <X size={30} />}
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-2 rubik-font">{tip.title}</h3>
+                    <h3 className="text-2xl font-bold text-white mb-2 rubik-font">{t(`flashcards.${tip.key}.title`)}</h3>
                     <div className="flex items-center gap-2 text-sm uppercase tracking-wider opacity-70 heebo-font">
                       {tip.type === "do" ? (
                         <span className="text-emerald-400 flex items-center gap-1">
-                          <Check size={14} /> עשה
+                          <Check size={14} /> {t('flashcards.doLabel')}
                         </span>
                       ) : (
                         <span className="text-red-400 flex items-center gap-1">
-                          <X size={14} /> אל תעשה
+                          <X size={14} /> {t('flashcards.dontLabel')}
                         </span>
                       )}
                     </div>
@@ -216,8 +226,8 @@ export default function HebrewFlashcards() {
                     style={{ transform: `translate(-50%, -50%) rotate(${index * 3 - 5}deg) scale(1.1)` }}
                   />
                   <div className="relative z-10 flex flex-col justify-center items-center">
-                    <h3 className="text-xl font-bold mb-4 text-white rubik-font">{tip.title}</h3>
-                    <p className="text-center leading-relaxed font-medium px-2 text-purple-100 heebo-font">{tip.content}</p>
+                    <h3 className="text-xl font-bold mb-4 text-white rubik-font">{t(`flashcards.${tip.key}.title`)}</h3>
+                    <p className="text-center leading-relaxed font-medium px-2 text-purple-100 heebo-font">{t(`flashcards.${tip.key}.content`)}</p>
                   </div>
                 </div>
               </div>
