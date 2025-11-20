@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
-import { usePathname, useRouter } from "next/navigation"
 
 interface LanguageOption {
   code: string
@@ -26,27 +25,12 @@ interface LanguagePickerProps {
 export default function LanguagePicker({ currentLang = "he" }: LanguagePickerProps) {
   const { i18n } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
-  const router = useRouter()
-  const pathname = usePathname()
-
-  const toPathWithLang = (code: string) => {
-    const segs = pathname.split("/").filter(Boolean)
-    const supported = ["he", "en", "es", "ru", "ar", "th"]
-    if (segs.length === 0) return `/${code}`
-    if (supported.includes(segs[0])) segs[0] = code
-    else segs.unshift(code)
-    return "/" + segs.join("/")
-  }
+  
 
   const handleLanguageChange = (langCode: string) => {
     i18n.changeLanguage(langCode)
     localStorage.setItem("gtranslate_language", langCode)
     localStorage.setItem("i18nextLng", langCode)
-    // update route to reflect language
-    try {
-      const target = toPathWithLang(langCode)
-      router.push(target)
-    } catch {}
     setIsOpen(false)
   }
 
