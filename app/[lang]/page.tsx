@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import Toast from "@/components/toast"
 import RatingDialog from "@/components/rating-dialog"
+import HebrewFlashcards from "@/components/hebrew-flashcards"
 import PortfolioCarousel from "@/components/portfolio-carousel"
 import LanguagePicker from "@/components/language-picker"
 import Image from "next/image"
@@ -146,6 +147,9 @@ export default function LanguagePage({ params }: PageProps) {
           <div className="bg-black/30 backdrop-blur-md border border-zinc-800 rounded-3xl shadow-2xl overflow-hidden p-4">
             <div id="shapo-widget-878653ba3bbe62a9a2c1"></div>
           </div>
+        </div>
+        <div className="w-full flex justify-center">
+          <HebrewFlashcards />
         </div>
       </main>
       <footer className="relative z-10 w-full bg-black/80 backdrop-blur-md border-t border-zinc-800 mt-8">
