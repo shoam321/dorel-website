@@ -4,7 +4,6 @@ import { useRef, useState, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import Toast from "@/components/toast"
 import RatingDialog from "@/components/rating-dialog"
-import ProtocolGuide from "@/components/protocol-guide"
 import PortfolioCarousel from "@/components/portfolio-carousel"
 import LanguagePicker from "@/components/language-picker"
 import Image from "next/image"
@@ -148,7 +147,6 @@ export default function LanguagePage({ params }: PageProps) {
             <div id="shapo-widget-878653ba3bbe62a9a2c1"></div>
           </div>
         </div>
-        <ProtocolGuide />
       </main>
       <footer className="relative z-10 w-full bg-black/80 backdrop-blur-md border-t border-zinc-800 mt-8">
         <div className="max-w-7xl mx-auto px-4 py-6 sm:py-8">
