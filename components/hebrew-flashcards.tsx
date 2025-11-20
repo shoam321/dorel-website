@@ -147,9 +147,6 @@ export default function HebrewFlashcards() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 rubik-font">
             טיפים לפני <span className="text-purple-gradient">הקעקוע הראשון</span>
           </h2>
-          <p className="text-stone-300 text-lg max-w-2xl mx-auto heebo-font">
-            הכנו עבורך כרטיסיות מידע חשובות. רחפו מעל הכרטיס (או לחצו בנייד) כדי לגלות מה לעשות ומה לא.
-          </p>
         </div>
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
