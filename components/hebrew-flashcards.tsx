@@ -145,7 +145,8 @@ export default function HebrewFlashcards() {
             <Sparkles size={18} className="text-purple-accent" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 rubik-font glow-title">
-            טיפים לפני <span className="text-purple-gradient">הקעקוע הראשון</span>
+            <span className="title-outline">טיפים לפני </span>
+            <span className="text-rainbow">הקעקוע הראשון</span>
           </h2>
         </div>
         <motion.div
@@ -284,18 +285,30 @@ export default function HebrewFlashcards() {
           color: transparent;
         }
         @keyframes glowPulse {
-          0% {
-            text-shadow: 0 0 10px rgba(224, 176, 255, 0.25), 0 0 20px rgba(138, 43, 226, 0.25);
-          }
-          50% {
-            text-shadow: 0 0 18px rgba(224, 176, 255, 0.6), 0 0 30px rgba(138, 43, 226, 0.45);
-          }
-          100% {
-            text-shadow: 0 0 10px rgba(224, 176, 255, 0.25), 0 0 20px rgba(138, 43, 226, 0.25);
-          }
+          0% { text-shadow: 0 0 12px rgba(255, 255, 255, 0.15), 0 0 25px rgba(130, 87, 229, 0.35); }
+          50% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(130, 87, 229, 0.7); }
+          100% { text-shadow: 0 0 12px rgba(255, 255, 255, 0.15), 0 0 25px rgba(130, 87, 229, 0.35); }
         }
         .glow-title {
-          animation: glowPulse 3.5s ease-in-out infinite;
+          animation: glowPulse 3s ease-in-out infinite;
+          position: relative;
+          display: inline-block;
+        }
+        .title-outline {
+          text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+        }
+        .text-rainbow {
+          background: linear-gradient(120deg, #ff007a, #ffae00, #5cffab, #00c6ff, #bd5dff, #ff007a);
+          background-size: 300% 300%;
+          -webkit-background-clip: text;
+          color: transparent;
+          animation: rainbowShift 5s ease infinite;
+          filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.3));
+        }
+        @keyframes rainbowShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
         .tattoo-motif {
           position: absolute;
