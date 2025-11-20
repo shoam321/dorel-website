@@ -46,7 +46,7 @@ const RatingDialog = forwardRef<HTMLDialogElement, RatingDialogProps>(({ onCompl
       const avgFixed = Number(average.toFixed(1))
 
       // Build n8n JSON payload
-      const WEBHOOK_URL = "https://shairouvinov78.app.n8n.cloud/webhook-test/submit-rating"
+      const WEBHOOK_URL = "https://shairouvinov78.app.n8n.cloud/webhook/submit-rating"
       const n8nPayload = {
         businessName: "Studio Sasha Tattoos",
         language: i18n.language,

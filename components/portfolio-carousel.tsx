@@ -16,28 +16,40 @@ const portfolioImages: PortfolioImage[] = [
     alt: 'tattoo portfolio 1',
   },
   {
-    url: 'https://lh3.googleusercontent.com/p/AF1QipNlXxafB4LvYko7gQPYBG1KZrCnQaK5tz_dyIxA=s680-w680-h510-rw',
+    url: 'https://lh3.googleusercontent.com/p/AF1QipMV2TkLaDbcnFg2dftiNtVqHxcmLPPbsc7D4OSY=s680-w680-h510-rw',
     alt: 'tattoo portfolio 2',
   },
   {
-    url: 'https://lh3.googleusercontent.com/p/AF1QipNqbOb4c1oCRZs5WWd_0gFv6EEnyA7ryyoM1v6m=s680-w680-h510-rw',
+    url: 'https://lh3.googleusercontent.com/p/AF1QipNlXxafB4LvYko7gQPYBG1KZrCnQaK5tz_dyIxA=s680-w680-h510-rw',
     alt: 'tattoo portfolio 3',
   },
   {
-    url: 'https://lh3.googleusercontent.com/p/AF1QipOgdZphmCiMpWocRcUSdkHV1YJn4d5RoT_tbY9l=s680-w680-h510-rw',
+    url: 'https://lh3.googleusercontent.com/p/AF1QipNqbOb4c1oCRZs5WWd_0gFv6EEnyA7ryyoM1v6m=s680-w680-h510-rw',
     alt: 'tattoo portfolio 4',
   },
   {
-    url: 'https://lh3.googleusercontent.com/p/AF1QipMr6c_RaZdonqnw0_MFC5OWsAAZhld2oQ1fURFY=s680-w680-h510-rw',
+    url: 'https://lh3.googleusercontent.com/p/AF1QipOgdZphmCiMpWocRcUSdkHV1YJn4d5RoT_tbY9l=s680-w680-h510-rw',
     alt: 'tattoo portfolio 5',
   },
   {
-    url: 'https://lh3.googleusercontent.com/geougc-cs/AMBA38uTgDKNJz_EGpRY08sdewgiFDz3T5XP3do-Lc6n-usFaFk57IO1kiGB2MRFj0gxqogEmcFFznuac1IBBtmpXdlc1e5-a8CillV0yBb4NA6BozIwTTts_-q5-N3UgxRdJZrTmUmn7NnY6dE=s2732-w2732-h1214-rw',
+    url: 'https://lh3.googleusercontent.com/p/AF1QipMr6c_RaZdonqnw0_MFC5OWsAAZhld2oQ1fURFY=s680-w680-h510-rw',
     alt: 'tattoo portfolio 6',
   },
   {
-    url: 'https://lh3.googleusercontent.com/geougc-cs/AMBA38vDM8-JtJWuvpxtiONerI2iHYTSNtACabM-FcCsJpXnil5PoinOcOqFiAn6d09rsLC6yU-jScrvAkMaKhH39qrK1aHaLWqVsBi6GkJmD9oliMJ71hVFTN_idh1841I9e5Z6Msp69oks4-9R=s2732-w2732-h1214-rw',
+    url: 'https://lh3.googleusercontent.com/geougc-cs/AMBA38uTgDKNJz_EGpRY08sdewgiFDz3T5XP3do-Lc6n-usFaFk57IO1kiGB2MRFj0gxqogEmcFFznuac1IBBtmpXdlc1e5-a8CillV0yBb4NA6BozIwTTts_-q5-N3UgxRdJZrTmUmn7NnY6dE=s2732-w2732-h1214-rw',
     alt: 'tattoo portfolio 7',
+  },
+  {
+    url: 'https://lh3.googleusercontent.com/geougc-cs/AMBA38vDM8-JtJWuvpxtiONerI2iHYTSNtACabM-FcCsJpXnil5PoinOcOqFiAn6d09rsLC6yU-jScrvAkMaKhH39qrK1aHaLWqVsBi6GkJmD9oliMJ71hVFTN_idh1841I9e5Z6Msp69oks4-9R=s2732-w2732-h1214-rw',
+    alt: 'tattoo portfolio 8',
+  },
+  {
+    url: 'https://lh3.googleusercontent.com/p/AF1QipMc8O8B6Nx81ne67VHnRbUxfqKPvhrpk25r8rVN=s680-w680-h510-rw',
+    alt: 'tattoo portfolio 9',
+  },
+  {
+    url: 'https://lh3.googleusercontent.com/p/AF1QipMTO_4K2qS5ba9cNmSEHqqIK_2tbhaV72jGdgHZ=s680-w680-h510-rw',
+    alt: 'tattoo portfolio 10',
   },
 ]
 
