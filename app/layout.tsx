@@ -56,18 +56,6 @@ export default function RootLayout({
           src="https://cdn.shapo.io/js/embed.js"
           defer
         />
-        <Script
-          id="gtranslate-config"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `window.gtranslateSettings = {"default_language":"en","url_structure":"sub_directory","languages":["en","es","ru","ar","th"],"wrapper_selector":".gtranslate_wrapper","flag_size":16,"flag_style":"3d"}`,
-          }}
-        />
-        <Script
-          src="https://cdn.gtranslate.net/widgets/latest/fn.js"
-          strategy="lazyOnload"
-          defer
-        />
       </body>
     </html>
   )
