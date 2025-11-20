@@ -144,9 +144,8 @@ export default function HebrewFlashcards() {
             </h3>
             <Sparkles size={18} className="text-purple-accent" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 rubik-font glow-title">
-            <span className="title-outline">טיפים לפני </span>
-            <span className="text-rainbow">הקעקוע הראשון</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 rubik-font glow-title title-outline">
+            טיפים לפני הקעקוע הראשון
           </h2>
         </div>
         <motion.div
@@ -279,11 +278,6 @@ export default function HebrewFlashcards() {
           color: #fff;
           transform: rotateY(180deg);
         }
-        .text-purple-gradient {
-          background: linear-gradient(to right, #8a2be2, #e0b0ff, #8a2be2);
-          -webkit-background-clip: text;
-          color: transparent;
-        }
         @keyframes glowPulse {
           0% { text-shadow: 0 0 12px rgba(255, 255, 255, 0.15), 0 0 25px rgba(130, 87, 229, 0.35); }
           50% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(130, 87, 229, 0.7); }
@@ -296,19 +290,6 @@ export default function HebrewFlashcards() {
         }
         .title-outline {
           text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
-        }
-        .text-rainbow {
-          background: linear-gradient(120deg, #ff007a, #ffae00, #5cffab, #00c6ff, #bd5dff, #ff007a);
-          background-size: 300% 300%;
-          -webkit-background-clip: text;
-          color: transparent;
-          animation: rainbowShift 5s ease infinite;
-          filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.3));
-        }
-        @keyframes rainbowShift {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
         }
         .tattoo-motif {
           position: absolute;
