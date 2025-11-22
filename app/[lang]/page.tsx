@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next"
 import Toast from "@/components/toast"
 import RatingDialog from "@/components/rating-dialog"
 import HebrewFlashcards from "@/components/hebrew-flashcards"
+import StorylineScroll from "@/components/storyline-scroll"
 import PortfolioCarousel from "@/components/portfolio-carousel"
 import LanguagePicker from "@/components/language-picker"
 import Image from "next/image"
@@ -162,6 +163,9 @@ export default function LanguagePage({ params }: PageProps) {
         </div>
         <div className="w-full flex justify-center">
           <HebrewFlashcards />
+        </div>
+        <div className="w-full flex justify-center">
+          <StorylineScroll />
         </div>
       </main>
       <footer className="relative z-10 w-full bg-black/80 backdrop-blur-md border-t border-zinc-800 mt-8">

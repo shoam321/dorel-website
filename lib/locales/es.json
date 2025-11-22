@@ -36,5 +36,21 @@
     "tip4": { "title": "Ropa Cómoda", "content": "Usa ropa oscura y suelta. La tinta puede manchar y necesitamos acceso fácil al área." },
     "tip5": { "title": "Sol & Bronceado", "content": "Nada de quemaduras solares ni bronceado reciente. Evita sol fuerte la semana previa." },
     "tip6": { "title": "Sueño & Descanso", "content": "Duerme bien la noche anterior. Tu cuerpo necesita energía para manejar el dolor con calma." }
+  },
+  "storyline": {
+    "heading": "La Historia de Nuestro Estudio",
+    "subtitle": "Sigue nuestro viaje de pasión, arte y transformación",
+    "chapter1": {
+      "title": "El Comienzo",
+      "description": "Todo comenzó con una pasión por el arte y el sueño de crear un espacio acogedor donde la gente pudiera expresarse a través de tatuajes. Cada diseño cuenta una historia."
+    },
+    "chapter2": {
+      "title": "Creciendo Juntos",
+      "description": "Año tras año, hemos construido una comunidad de artistas y clientes que confían en nosotros con sus visiones. Cada tatuaje representa un momento en la vida de alguien."
+    },
+    "chapter3": {
+      "title": "Nuestro Compromiso",
+      "description": "Hoy, seguimos comprometidos con la excelencia, la creatividad y asegurar que cada cliente se vaya con una obra maestra que ama y atesora para siempre."
+    }
   }
 }

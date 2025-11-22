@@ -32,9 +32,25 @@
     "dontLabel": "Don't",
     "tip1": { "title": "Hydration", "content": "Drink plenty of water in the 24h before. Hydrated skin takes ink better, bleeds less and heals cleaner." },
     "tip2": { "title": "Alcohol", "content": "Avoid alcohol for 24h – it thins the blood and can worsen bleeding and final results." },
-    "tip3": { "title": "Balanced Meal", "content": "Don’t arrive fasted. Eat a nourishing meal about an hour before to keep blood sugar steady." },
+    "tip3": { "title": "Balanced Meal", "content": "Don't arrive fasted. Eat a nourishing meal about an hour before to keep blood sugar steady." },
     "tip4": { "title": "Comfortable Clothing", "content": "Wear loose dark clothing. Ink may stain light fabrics and we need easy access to the area." },
     "tip5": { "title": "Sun & Tanning", "content": "No fresh sunburn or recent tanning. Avoid strong sun on the area for the week before." },
-    "tip6": { "title": "Sleep & Rest", "content": "Get a good night’s sleep. Your body needs energy to manage pain and adrenaline calmly." }
+    "tip6": { "title": "Sleep & Rest", "content": "Get a good night's sleep. Your body needs energy to manage pain and adrenaline calmly." }
+  },
+  "storyline": {
+    "heading": "Our Studio Story",
+    "subtitle": "Follow our journey of passion, art, and transformation",
+    "chapter1": {
+      "title": "The Beginning",
+      "description": "It all started with a passion for art and a dream to create a welcoming space where people could express themselves through tattoos. Every design tells a story."
+    },
+    "chapter2": {
+      "title": "Growing Together",
+      "description": "Year after year, we've built a community of artists and clients who trust us with their visions. Each tattoo represents a moment in someone's life."
+    },
+    "chapter3": {
+      "title": "Our Commitment",
+      "description": "Today, we remain committed to excellence, creativity, and making sure every client leaves with a masterpiece they love and cherish forever."
+    }
   }
 }
