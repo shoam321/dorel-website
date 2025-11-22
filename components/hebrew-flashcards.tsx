@@ -155,11 +155,11 @@ export default function HebrewFlashcards() {
       <div className="container mx-auto px-6 relative">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-4 text-purple-accent/80">
-            <Sparkles size={18} className="text-purple-accent" />
-            <h3 className="text-sm uppercase tracking-[0.4em] font-medium text-purple-accent/80 rubik-font">
+            <Sparkles size={22} className="text-purple-accent" />
+            <h3 className="text-base md:text-lg uppercase tracking-[0.35em] font-medium text-purple-accent/80 rubik-font">
               {t('flashcards.sectionLabel')}
             </h3>
-            <Sparkles size={18} className="text-purple-accent" />
+            <Sparkles size={22} className="text-purple-accent" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 rubik-font glow-title title-outline">
             {t('flashcards.heading')}
