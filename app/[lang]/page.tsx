@@ -19,7 +19,6 @@ export default function LanguagePage({ params }: PageProps) {
   const { t, i18n } = useTranslation()
   const [toastMessage, setToastMessage] = useState("")
   const [showToast, setShowToast] = useState(false)
-  const [showReviewPrompt, setShowReviewPrompt] = useState(false)
   const ratingDialogRef = useRef<HTMLDialogElement>(null)
 
   // Replace with your real Google Place ID (obtain via Google Business Profile)
@@ -44,8 +43,16 @@ export default function LanguagePage({ params }: PageProps) {
   const handleRatingComplete = (avg: number) => {
     showToastMessage(t("ratingComplete"))
     if (avg >= 4) {
-      // Show in-page prompt instead of immediate redirect
-      setShowReviewPrompt(true)
+      // Attempt automatic opening of Google write review page.
+      // Note: Google disallows embedding this page in an iframe (X-Frame-Options / CSP SAMEORIGIN),
+      // so we open a new tab automatically without extra user steps.
+      setTimeout(() => {
+        try {
+          window.open(GOOGLE_REVIEW_URL, '_blank', 'noopener')
+        } catch (e) {
+          console.warn('Auto open blocked; user may need to enable popups.')
+        }
+      }, 400)
     }
   }
 
@@ -179,40 +186,6 @@ export default function LanguagePage({ params }: PageProps) {
       </footer>
       <Toast message={toastMessage} isVisible={showToast} />
       <RatingDialog ref={ratingDialogRef} onComplete={handleRatingComplete} />
-      {showReviewPrompt && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setShowReviewPrompt(false)} />
-          <div className="relative w-[min(90vw,420px)] bg-zinc-950 border border-zinc-800 rounded-2xl p-6 shadow-2xl">
-            <h3 className="text-white font-bold text-xl mb-2">{t("thanksHighRating") || "Thank you for your great rating!"}</h3>
-            <p className="text-zinc-300 text-sm mb-4 leading-relaxed">
-              {GOOGLE_REVIEW_URL
-                ? (t("promptWriteReview") || "Would you like to share a public Google review? It really helps others discover us.")
-                : (t("missingPlaceId") || "Google review link not configured yet. Add your Google Place ID to enable direct review writing.")}
-            </p>
-            <div className="flex gap-3 flex-wrap">
-              {GOOGLE_REVIEW_URL && (
-                <button
-                  onClick={() => { window.open(GOOGLE_REVIEW_URL, "_blank"); setShowReviewPrompt(false) }}
-                  className="flex-1 flex items-center justify-center gap-2 rounded-full px-4 py-2 bg-gradient-to-br from-red-600 to-red-700 text-white font-semibold shadow-md hover:shadow-lg hover:shadow-red-900/50 hover:-translate-y-0.5 active:translate-y-0 transition-all"
-                >
-                  {t("writeGoogleReview") || "Write Google Review"}
-                </button>
-              )}
-              <button
-                onClick={() => setShowReviewPrompt(false)}
-                className="flex-1 flex items-center justify-center gap-2 rounded-full px-4 py-2 bg-zinc-800 text-white font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all"
-              >
-                {t("close") || "Close"}
-              </button>
-            </div>
-            {GOOGLE_REVIEW_URL && (
-              <div className="mt-4 text-[11px] text-zinc-500 leading-relaxed">
-                {t("reviewInstructions") || "A new tab will open with the Google review dialog. If you are not signed in, Google may ask you to log in first."}
-              </div>
-            )}
-          </div>
-        </div>
-      )}
     </div>
   )
 }

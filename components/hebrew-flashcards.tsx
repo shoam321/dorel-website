@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import type { KeyboardEvent } from "react"
 import { useTranslation } from "react-i18next"
 import { motion } from "framer-motion"
 import { Droplet, Ban, Coffee, Moon, Sun, Shirt, Check, X, Sparkles } from "lucide-react"
@@ -140,7 +141,7 @@ export default function HebrewFlashcards() {
     setFlippedCards(prev => ({ ...prev, [id]: !prev[id] }))
   }
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>, id: number) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>, id: number) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault()
       toggleCard(id)
@@ -188,7 +189,7 @@ export default function HebrewFlashcards() {
               tabIndex={0}
               aria-pressed={Boolean(flippedCards[tip.id])}
               onClick={() => toggleCard(tip.id)}
-              onKeyDown={event => handleKeyDown(event, tip.id)}
+              onKeyDown={(event: KeyboardEvent<HTMLDivElement>) => handleKeyDown(event, tip.id)}
             >
               <div className={`flip-card-inner ${flippedCards[tip.id] ? "is-flipped" : ""}`}>
                 <div className="flip-card-front">
