@@ -28,3 +28,9 @@ Continue building your app on:
 2. Deploy your chats from the v0 interface
 3. Changes are automatically pushed to this repository
 4. Vercel deploys the latest version from this repository
+
+## n8n Integration
+
+This project includes integration with n8n for rating submissions. Customer ratings are automatically sent to your n8n webhook at `https://shairouvinovisr.app.n8n.cloud/webhook/submit-rating`.
+
+For configuration details, see [N8N_INTEGRATION.md](./N8N_INTEGRATION.md)
