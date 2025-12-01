@@ -37,32 +37,38 @@ const RatingDialog = forwardRef<HTMLDialogElement, RatingDialogProps>(({ onCompl
     setIsSubmitting(true)
 
     try {
-      const formData = new FormData()
       const average = ratingValues.reduce((a, b) => a + b, 0) / ratingValues.length
 
-      // Add all form data with descriptive names and star display
-      const starDisplay = (rating: number) => '⭐'.repeat(rating) + ' ' + `(${rating}/5)`
-      
-      formData.append('החוויה הכללית', starDisplay(ratings.q1))
-      formData.append('איכות ההדרכה', starDisplay(ratings.q2))
-      formData.append('רמת השירות', starDisplay(ratings.q3))
-      formData.append('אווירה וניקיון', starDisplay(ratings.q4))
-      formData.append('המלצה לאחרים', starDisplay(ratings.q5))
-      formData.append('ממוצע כללי', `⭐ ${average.toFixed(1)}/5 ${average >= 4 ? '🎉' : ''}`)
-      formData.append('סטודיו', 'סטודיו דוראל אזולאי 💪')
-      formData.append('תאריך שליחה', new Date().toLocaleString("he-IL"))
+      // Prepare JSON payload in the exact format required by n8n
+      const payload = {
+        businessName: "Dorel Studio",
+        average: Math.round(average * 10) / 10, // Round to 1 decimal place
+        feedback: "", // No custom feedback field in the form yet
+        timestamp: new Date().toISOString(),
+        q1: ratings.q1,
+        q2: ratings.q2,
+        q3: ratings.q3,
+        q4: ratings.q4,
+        q5: ratings.q5,
+        customerName: "", // Optional field - not collected in form
+        customerPhone: "", // Optional field - not collected in form
+        source: "rating-page",
+      }
 
-      // Submit to Formspree
-      const response = await fetch('https://formspree.io/f/xdkbkoel', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
+      // Submit to n8n Production webhook
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || 'https://shairouvinovisr.app.n8n.cloud/webhook/submit-rating',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
         }
-      })
+      )
 
       if (response.ok) {
-        console.log('Form submitted successfully to Formspree')
+        console.log('Rating submitted successfully to n8n')
         
         if (ref && "current" in ref && ref.current?.open) {
           ref.current.close()
@@ -70,10 +76,12 @@ const RatingDialog = forwardRef<HTMLDialogElement, RatingDialogProps>(({ onCompl
 
         onComplete(average)
       } else {
-        throw new Error('Form submission failed')
+        const errorData = await response.text()
+        console.error('n8n submission failed:', errorData)
+        throw new Error('Rating submission failed')
       }
     } catch (error) {
-      console.error('Error submitting form:', error)
+      console.error('Error submitting rating:', error)
       alert('אירעה שגיאה בשליחת הדעה')
     } finally {
       setIsSubmitting(false)
@@ -103,15 +111,9 @@ const RatingDialog = forwardRef<HTMLDialogElement, RatingDialogProps>(({ onCompl
             <div key={qKey} className="grid gap-2 my-2].5 border border-gray-200 rounded-3xl p-2.5 bg-white">
               <label className="text-sm text-gray-600">{question}</label>
               <StarRating value={ratings[qKey]} onChange={(value) => handleStarClick(qKey, value)} />
-              <input type="hidden" name={`rating_${qKey}`} value={ratings[qKey]} />
             </div>
           )
         })}
-        
-        {/* Additional form data for Formspree */}
-        <input type="hidden" name="average_rating" value={(ratingValues.reduce((a, b) => a + b, 0) / ratingValues.length).toFixed(1)} />
-        <input type="hidden" name="studio_name" value="סטודיו דוראל אזולאי" />
-        <input type="hidden" name="submission_date" value={new Date().toLocaleString("he-IL")} />
         
         <div className="flex gap-2 flex-wrap mt-2">
           <button
@@ -135,8 +137,6 @@ const RatingDialog = forwardRef<HTMLDialogElement, RatingDialogProps>(({ onCompl
           </button>
         </div>
       </form>
-
-      {completedRatings.length == 5 && <iframe src=""/>}
     </dialog>
   )
 })
